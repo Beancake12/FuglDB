@@ -16,6 +16,6 @@ class UserController extends Controller
 
     public function all()
     {
-    	return $this->userService->test();
+    	return $this->userService->all();
     }
 }

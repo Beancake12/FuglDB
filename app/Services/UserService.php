@@ -16,7 +16,7 @@ class UserService
 		$this->userRepository = $userRepository;
 	}
 
-	public function test()
+	public function all()
 	{
 		return $this->userRepository->all();
 	}
