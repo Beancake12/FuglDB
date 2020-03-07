@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes(['verify' => true]);
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users', 'UserController@all');
+Route::post('bird/create', 'BirdController@create');
+Route::get('birds', 'BirdController@all');
+Route::post('location/create', 'LocationController@create');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
