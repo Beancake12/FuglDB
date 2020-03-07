@@ -20,4 +20,9 @@ class UserService
 	{
 		return $this->userRepository->all();
 	}
+
+	public function create(array $data)
+	{
+		return $this->userRepository->create($data);
+	}
 }
