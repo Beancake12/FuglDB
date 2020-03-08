@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Services\BirdService;
 use App\Services\LocationService;
 
-use App\Models\Location;
-
-
 class BirdController extends Controller
 {
 	protected $birdService;
