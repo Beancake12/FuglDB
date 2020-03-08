@@ -8,9 +8,9 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <h1>Bird</h1>
                     <form action="/bird/create" method="POST">
                         @csrf
+                    	<h1>Bird</h1>
                         <label>Name</label>
                         <input type="text" name="name">
                         <label>Ring</label>
@@ -18,13 +18,8 @@
                         <label>Dead</label>
                         <input type="checkbox" name="dead">
                         <input type="submit" value="Gem">
-                    </form>
 
-                    <h1>Location</h1>
-                    <form action="/location/create" method="POST">
-                        @csrf
-                        <label>Bird id</label>
-                        <input type="text" name="bird_id">
+                    	<h1>Location</h1>
                         <label>Adress</label>
                         <input type="text" name="adress">
                         <label>City</label>
