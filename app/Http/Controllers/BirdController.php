@@ -9,6 +9,14 @@ class BirdController extends Controller
 {
 	protected $birdService;
 
+	public function index()
+	{
+		$birds = $this->all();
+		$locations = $this->all();
+
+		return view('bird', compact('birds', 'locations'));
+	}
+
 	public function __construct(BirdService $birdService)
 	{
 		$this->birdService = $birdService;
