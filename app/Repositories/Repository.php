@@ -17,7 +17,7 @@ class Repository implements RepositoryInterface
 	}
 
 	public function get($id) {
-		return $this->model->get($id);
+		return $this->model->find($id);
 	}
 
 	public function delete($id) {
