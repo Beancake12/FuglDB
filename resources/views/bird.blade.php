@@ -7,8 +7,6 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                <create-bird></create-bird>
-
                 <div class="card-body">
                     <h1>Bird</h1>
                     <form action="/bird/create" method="POST">
@@ -19,7 +17,6 @@
                         <input type="text" name="ring">
                         <label>Dead</label>
                         <input type="checkbox" name="dead">
-                        <input type="select" name="location">
                         <input type="submit" value="Gem">
                     </form>
 
