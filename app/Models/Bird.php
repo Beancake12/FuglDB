@@ -12,6 +12,6 @@ class Bird extends Model
 
 	public function locations()
 	{
-		return $this->hasMany('App\Models\Location');
+		return $this->morphToMany('App\Models\Location', 'locationable');
 	}
 }
