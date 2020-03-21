@@ -4,22 +4,10 @@ namespace App\Services;
 
 use App\Repositories\UserRepository;
 
-class UserService
+class UserService extends Service
 {
-	private $userRepository;
-
-	function __construct(UserRepository $userRepository)
+	function __construct(UserRepository $repository)
 	{
-		$this->userRepository = $userRepository;
-	}
-
-	public function all()
-	{
-		return $this->userRepository->all();
-	}
-
-	public function create(array $data)
-	{
-		return $this->userRepository->create($data);
+		$this->repository = $repository;
 	}
 }

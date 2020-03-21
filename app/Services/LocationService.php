@@ -4,17 +4,10 @@ namespace App\Services;
 
 use App\Repositories\LocationRepository;
 
-class LocationService
+class LocationService extends Service
 {
-	protected $locationRepository;
-
-	function __construct(LocationRepository $locationRepository)
+	function __construct(LocationRepository $repository)
 	{
-		$this->locationRepository = $locationRepository;
-	}
-
-	public function create(array $data)
-	{
-		return $this->locationRepository->create($data);
+		$this->repository = $repository;
 	}
 }
