@@ -18,4 +18,14 @@ class LocationController extends Controller
 	{
 		return $this->locationService->create($request->all());
 	}
+
+	public function all()
+	{
+		return $this->locationService->all();
+	}
+
+	public function get($id)
+	{
+		return $this->locationService->get($id);
+	}
 }

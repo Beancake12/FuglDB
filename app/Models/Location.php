@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
 	protected $fillable = [
-		'bird_id', 'adress', 'city', 'zip', 'latitude', 'longitude',
+		'adress', 'city', 'zip', 'latitude', 'longitude',
 	];
 
-	public function bird()
+	public function birds()
     {
-        return $this->belongsTo('App\Models\Bird');
+        return $this->morphedByMany('App\Models\Bird', 'locationable');
+    }
+
+    public function contact()
+    {
+    	return $this->hasOne('App\Contact');
     }
 }

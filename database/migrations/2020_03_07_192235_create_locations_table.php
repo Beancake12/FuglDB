@@ -15,15 +15,12 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('bird_id');
             $table->string('adress')->nullable();
             $table->string('city')->nullable();
             $table->string('zip')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->timestamps();
-
-            $table->foreign('bird_id')->references('id')->on('birds');
         });
     }
 
