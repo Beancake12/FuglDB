@@ -4,16 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\BirdService;
-use App\Services\LocationService;
 
 class BirdController extends Controller
 {
 	protected $birdService;
 
-	public function __construct(BirdService $birdService, LocationService $locationService)
+	public function __construct(BirdService $birdService)
 	{
 		$this->birdService = $birdService;
-		$this->locationService = $locationService;
 	}
 
 	public function index()
