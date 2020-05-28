@@ -14,4 +14,11 @@ class Bird extends Model
 	{
 		return $this->morphToMany('App\Models\Location', 'locationable');
 	}
+
+	public function delete()
+	{
+		$this->locations()->detach();
+
+		parent::delete();
+	}
 }

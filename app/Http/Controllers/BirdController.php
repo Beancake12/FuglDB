@@ -22,9 +22,19 @@ class BirdController extends Controller
 	public function create(Request $request)
 	{
 		$bird = $this->birdService->create($request->all());
-		$location = $bird->locations()->create($request->all());
+		$bird->locations()->create($request->all());
 
 		return $bird;
+	}
+
+	public function delete(int $id)
+	{
+		return $this->birdService->delete($id);
+	}
+
+	public function get(int $id)
+	{
+		return $this->birdService->get($id);
 	}
 
 	public function all()

@@ -19,4 +19,11 @@ class Location extends Model
     {
     	return $this->hasOne('App\Contact');
     }
+
+    public function delete()
+    {
+        $this->birds()->detach();
+
+        parent::delete();
+    }
 }

@@ -23,7 +23,7 @@ Route::get('bird', 'BirdController@index')->name('bird');
 Route::get('birds', 'BirdController@all');
 Route::get('bird/get/{id}', 'BirdController@get');
 Route::post('bird/create', 'BirdController@create');
-Route::post('bird/delete', 'BirdController@delete');
+Route::get('bird/delete/{id}', 'BirdController@delete');
 
 // Locations
 Route::get('locations', 'LocationController@all');

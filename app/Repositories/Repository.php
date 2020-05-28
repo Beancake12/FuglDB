@@ -14,11 +14,20 @@ class Repository implements RepositoryInterface
 	}
 
 	public function get($id) {
-		return $this->model->find($id);
+		try {
+			return $this->model->findOrFail($id);
+		} catch (\Throwable $th) {
+			return 'No record found';
+		}
 	}
 
 	public function delete($id) {
-		return $this->model->delete($id);
+		try {
+			$this->model->findOrFail($id)->delete();
+			return 'Record deleted';
+		} catch (\Throwable $th) {
+			return 'No record found';
+		}
 	}
 	
 	public function create(array $data) {

@@ -14,10 +14,11 @@ class CreateLocationablesTable extends Migration
     public function up()
     {
         Schema::create('locationables', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');;
             $table->unsignedBigInteger('locationable_id');
             $table->string('locationable_type');
-            $table->timestamps();
         });
     }
 
