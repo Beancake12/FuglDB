@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 use App\Services\UserService;
 
 class UserController extends Controller
@@ -14,7 +15,7 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
-    public function all()
+    public function all() : Collection
     {
     	return $this->userService->all();
     }

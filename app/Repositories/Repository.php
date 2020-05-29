@@ -2,8 +2,6 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Repository implements RepositoryInterface
 {
 	protected $model;
@@ -13,20 +11,20 @@ class Repository implements RepositoryInterface
 		return $this->model->all();
 	}
 
-	public function get($id) {
+	public function get(int $id) {
 		try {
 			return $this->model->findOrFail($id);
 		} catch (\Throwable $th) {
-			return 'No record found';
+			return null;
 		}
 	}
 
-	public function delete($id) {
+	public function delete(int $id) {
 		try {
 			$this->model->findOrFail($id)->delete();
-			return 'Record deleted';
+			return true;
 		} catch (\Throwable $th) {
-			return 'No record found';
+			return false;
 		}
 	}
 	
@@ -34,7 +32,7 @@ class Repository implements RepositoryInterface
 		return $this->model->create($data);
 	}
 	
-	public function update(array $data, $id) {
+	public function update(array $data, int $id) {
 		return $this->model->where('id', $id)->update($data);
 	}
 	

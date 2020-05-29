@@ -11,11 +11,11 @@ class Service implements ServiceInterface
 		return $this->repository->all();
 	}
 
-	public function get($id) {
+	public function get(int $id) {
 		return $this->repository->get($id);
 	}
 
-	public function delete($id) {
+	public function delete(int $id) {
 		return $this->repository->delete($id);
 	}
 	
