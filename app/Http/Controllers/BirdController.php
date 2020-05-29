@@ -24,9 +24,13 @@ class BirdController extends Controller
 
 	public function create(Request $request) : Bird
 	{
-		$bird = $this->birdService->create($request->all());
-
-		return $bird;
+		$validatedData = $request->validate([
+			'name' => ['required', 'string'],
+			'ring' => ['nullable', 'string'],
+			'dead' => ['nullable', 'bool'],
+		]);
+		
+		return $this->birdService->create($validatedData);
 	}
 
 	public function delete(int $id) : bool

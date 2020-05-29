@@ -18,7 +18,15 @@ class LocationController extends Controller
 
 	public function create(Request $request) : Location
 	{
-		return $this->locationService->create($request->all());
+		$validatedData = $request->validate([
+			'adress' => ['nullable', 'string', 'required_without:latitude,longitude'],
+			'city' => ['nullable', 'string', 'required_without:latitude,longitude'],
+			'zip' => ['nullable', 'digits:4', 'required_without:latitude,longitude'],
+			'latitude' => ['nullable', 'required_without:adress,city,zip'],
+			'longitude' => ['nullable', 'required_without:adress,city,zip'],
+		]);
+
+		return $this->locationService->create($validatedData);
 	}
 
 	public function all() : Collection
