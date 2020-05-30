@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreLocation;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use App\Services\LocationService;
@@ -16,17 +17,9 @@ class LocationController extends Controller
 		$this->locationService = $locationService;
 	}
 
-	public function create(Request $request) : Location
+	public function create(StoreLocation $request) : Location
 	{
-		$validatedData = $request->validate([
-			'adress' => ['nullable', 'string', 'required_without:latitude,longitude'],
-			'city' => ['nullable', 'string', 'required_without:latitude,longitude'],
-			'zip' => ['nullable', 'digits:4', 'required_without:latitude,longitude'],
-			'latitude' => ['nullable', 'required_without:adress,city,zip'],
-			'longitude' => ['nullable', 'required_without:adress,city,zip'],
-		]);
-
-		return $this->locationService->create($validatedData);
+		return $this->locationService->create($request->validated());
 	}
 
 	public function all() : Collection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBird;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
@@ -22,15 +23,9 @@ class BirdController extends Controller
 		return view('bird');
 	}
 
-	public function create(Request $request) : Bird
+	public function create(StoreBird $request) : Bird
 	{
-		$validatedData = $request->validate([
-			'name' => ['required', 'string'],
-			'ring' => ['nullable', 'string'],
-			'dead' => ['nullable', 'bool'],
-		]);
-		
-		return $this->birdService->create($validatedData);
+		return $this->birdService->create($request->validated());
 	}
 
 	public function delete(int $id) : bool
