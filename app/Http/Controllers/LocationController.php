@@ -17,9 +17,20 @@ class LocationController extends Controller
 		$this->locationService = $locationService;
 	}
 
-	public function create(StoreLocation $request) : Location
+	public function index()
 	{
-		return $this->locationService->create($request->validated());
+		return view('location');
+	}
+
+	public function table()
+	{
+		$locations = $this->all();
+		return view('location-table', compact('locations'));
+	}
+
+	public function store(StoreLocation $request) : Location
+	{
+		return $this->locationService->store($request->validated());
 	}
 
 	public function all() : Collection

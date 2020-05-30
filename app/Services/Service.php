@@ -19,8 +19,8 @@ class Service implements ServiceInterface
 		return $this->repository->delete($id);
 	}
 	
-	public function create(array $data) {
-		return $this->repository->create($data);
+	public function store(array $data) {
+		return $this->repository->store($data);
 	}
 	
 	public function update(array $data, $id) {

@@ -28,7 +28,7 @@ class Repository implements RepositoryInterface
 		}
 	}
 	
-	public function create(array $data) {
+	public function store(array $data) {
 		return $this->model->create($data);
 	}
 	

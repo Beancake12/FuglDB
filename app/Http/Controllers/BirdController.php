@@ -23,9 +23,15 @@ class BirdController extends Controller
 		return view('bird');
 	}
 
-	public function create(StoreBird $request) : Bird
+	public function table()
 	{
-		return $this->birdService->create($request->validated());
+		$birds = $this->all();
+		return view('bird-table', compact('birds'));
+	}
+
+	public function store(StoreBird $request) : Bird
+	{
+		return $this->birdService->store($request->validated());
 	}
 
 	public function delete(int $id) : bool

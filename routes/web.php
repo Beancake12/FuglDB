@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BirdController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,22 +18,28 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'IndexController@index');
 
-// Birds
-Route::get('bird', 'BirdController@index')->name('bird');
+// Bird views
+Route::get('bird', 'BirdController@index')->name('bird.index');
+Route::get('bird/table', 'BirdController@table')->name('bird.table');
 
-Route::get('birds', 'BirdController@all');
-Route::get('bird/get/{id}', 'BirdController@get');
-Route::post('bird/create', 'BirdController@create');
-Route::get('bird/delete/{id}', 'BirdController@delete');
+// Bird functions
+Route::get('birds', 'BirdController@all')->name('bird.all');
+Route::get('bird/get/{id}', 'BirdController@get')->name('bird.get');
+Route::post('bird/create', 'BirdController@store')->name('bird.store');
+Route::get('bird/delete/{id}', 'BirdController@delete')->name('bird.delete');
 
-// Locations
-Route::get('locations', 'LocationController@all');
-Route::get('location/get/{id}', 'LocationController@get');
-Route::post('location/create', 'LocationController@create');
-Route::post('location/delete', 'LocationController@delete');
+// Location views
+Route::get('location', 'LocationController@index')->name('location.index');
+Route::get('location/table', 'LocationController@table')->name('location.table');
+
+// Location functions
+Route::get('locations', 'LocationController@all')->name('location.all');
+Route::get('location/get/{id}', 'LocationController@get')->name('location.get');
+Route::post('location/create', 'LocationController@store')->name('location.store');
+Route::post('location/delete', 'LocationController@delete')->name('location.delete');
 
 // Contacts
 Route::get('contacts', 'ContactController@all');
 Route::get('contact/get/{id}', 'ContactController@get');
-Route::post('contact/create', 'ContactController@create');
+Route::post('contact/create', 'ContactController@store');
 Route::post('contact/delete', 'ContactController@delete');
