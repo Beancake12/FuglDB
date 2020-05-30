@@ -8,19 +8,23 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use App\Services\BirdService;
 use App\Models\Bird;
+use App\Services\LocationService;
 
 class BirdController extends Controller
 {
 	protected $birdService;
+	protected $locationService;
 
-	public function __construct(BirdService $birdService)
+	public function __construct(BirdService $birdService, LocationService $locationService)
 	{
 		$this->birdService = $birdService;
+		$this->locationService = $locationService;
 	}
 
 	public function index() : View
 	{
-		return view('bird');
+		$locations = $this->locationService->all();
+		return view('bird', compact('locations'));
 	}
 
 	public function table()
@@ -31,7 +35,14 @@ class BirdController extends Controller
 
 	public function store(StoreBird $request) : Bird
 	{
-		return $this->birdService->store($request->validated());
+		$validatedData = $request->validated();
+		$bird = $this->birdService->store($validatedData);
+		
+		if($validatedData['location_id'] && $bird) {
+			$bird->locations()->attach($validatedData['location_id']);
+		}
+
+		return $bird;
 	}
 
 	public function delete(int $id) : bool

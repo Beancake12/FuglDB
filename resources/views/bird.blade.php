@@ -21,6 +21,22 @@
                         <label>Dead</label>
                         <input type="checkbox" name="dead" value="0">
                         <br>
+                        <input type="number" name="location_id">
+
+						<div class="form-group">
+							<label for="location">Example select</label>
+							<select class="form-control" id="location" name="location_id">
+								<option value="">No location</option>
+								@foreach ($locations as $location)
+									<option value="{{$location->id}}">
+										{{$location->city}}
+										{{$location->adress}}
+										{{$location->zip}}
+									</option>
+								@endforeach
+							</select>
+						</div>
+                        <br>
                         <input type="submit" value="Gem">
                     </form>
                 </div>
