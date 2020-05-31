@@ -15,14 +15,13 @@
                         <input type="text" name="name">
                         {{$errors->first('name')}}
                         <br>
+
                         <label>Ring</label>
                         <input type="text" name="ring">
                         <br>
+
                         <label>Dead</label>
                         <input type="checkbox" name="dead" value="0">
-                        <br>
-                        <input type="number" name="location_id">
-
 						<div class="form-group">
 							<label for="location">Example select</label>
 							<select class="form-control" id="location" name="location_id">
@@ -37,6 +36,7 @@
 							</select>
 						</div>
                         <br>
+                        
                         <input type="submit" value="Gem">
                     </form>
                 </div>
