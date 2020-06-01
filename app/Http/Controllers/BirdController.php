@@ -21,10 +21,10 @@ class BirdController extends Controller
 		$this->locationService = $locationService;
 	}
 
-	public function index() : View
+	public function create() : View
 	{
 		$locations = $this->locationService->all();
-		return view('bird', compact('locations'));
+		return view('bird-create', compact('locations'));
 	}
 
 	public function table()

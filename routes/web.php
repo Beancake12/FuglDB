@@ -19,7 +19,7 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'IndexController@index');
 
 // Bird views
-Route::get('bird', 'BirdController@index')->name('bird.index');
+Route::get('bird', 'BirdController@create')->name('bird.create');
 Route::get('bird/table', 'BirdController@table')->name('bird.table');
 
 // Bird functions
