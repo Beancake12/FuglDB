@@ -9,27 +9,27 @@
 
                 <div class="card-body">
                     <form action="/location/create" method="POST">
-                        @csrf
-                        <h1>Location</h1>
-                        <label>Adress</label>
-                        <input type="text" name="adress">
+                        @csrf                        
+                        <h1>Område</h1>
+                        <label>Addresse</label>
+                        <input type="text" name="adress" value="{{old('adress')}}">
                         {{$errors->first('adress')}}
                         <br>
-                        <label>City</label>
-                        <input type="text" name="city">
+                        <label>By</label>
+                        <input type="text" name="city" value="{{old('city')}}">
                         {{$errors->first('city')}}
                         <br>
-                        <label>Zip</label>
-                        <input type="text" name="zip">
+                        <label>Post nr.</label>
+                        <input type="text" name="zip" value="{{old('zip')}}">
                         {{$errors->first('zip')}}
                         <br>
-                        <label>Latitude</label>
-                        <input type="text" name="latitude">
-                        {{$errors->first('latitude')}}
-                        <br>
-                        <label>Longitude</label>
-                        <input type="text" name="longitude">
+                        <label>Længdegrad</label>
+                        <input type="text" name="longitude" value="{{old('longitude')}}">
                         {{$errors->first('longitude')}}
+                        <br>
+                        <label>Breddegrad</label>
+                        <input type="text" name="latitude" value="{{old('latitude')}}">
+                        {{$errors->first('latitude')}}
                         <br>
                         <input type="submit" value="Gem">
                     </form>

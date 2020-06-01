@@ -11,9 +11,11 @@
                     @foreach ($birds as $bird)
                         <div class="card">
                             <div class="card-body">
-                                Name: {{$bird->name}}
+                                Navn: {{$bird->name}}
                                 <br>
-                                Ring: {{$bird->ring}}
+                                Ring nr.: {{$bird->ring}}
+                                <br>
+                                Område: {{$bird}}
                             </div>
                         </div>
                     @endforeach

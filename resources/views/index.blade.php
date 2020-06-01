@@ -8,16 +8,16 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <a href="{{route('bird.index')}}">Bird</a>
+                    <a href="{{route('bird.create')}}">Opret fugl</a>
                 </div>
                 <div class="card-body">
-                    <a href="{{route('bird.table')}}">Birds</a>
+                    <a href="{{route('bird.table')}}">Alle fugle</a>
                 </div>
                 <div class="card-body">
-                    <a href="{{route('location.index')}}">Location</a>
+                    <a href="{{route('location.create')}}">Opret område</a>
                 </div>
                 <div class="card-body">
-                    <a href="{{route('location.table')}}">Locations</a>
+                    <a href="{{route('location.table')}}">Alle områder</a>
                 </div>
             </div>
         </div>

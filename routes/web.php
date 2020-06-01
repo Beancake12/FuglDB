@@ -19,7 +19,7 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'IndexController@index');
 
 // Bird views
-Route::get('bird', 'BirdController@index')->name('bird.index');
+Route::get('bird', 'BirdController@create')->name('bird.create');
 Route::get('bird/table', 'BirdController@table')->name('bird.table');
 
 // Bird functions
@@ -29,7 +29,7 @@ Route::post('bird/create', 'BirdController@store')->name('bird.store');
 Route::get('bird/delete/{id}', 'BirdController@delete')->name('bird.delete');
 
 // Location views
-Route::get('location', 'LocationController@index')->name('location.index');
+Route::get('location', 'LocationController@create')->name('location.create');
 Route::get('location/table', 'LocationController@table')->name('location.table');
 
 // Location functions

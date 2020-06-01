@@ -17,9 +17,9 @@ class LocationController extends Controller
 		$this->locationService = $locationService;
 	}
 
-	public function index()
+	public function create()
 	{
-		return view('location');
+		return view('location-create');
 	}
 
 	public function table()
