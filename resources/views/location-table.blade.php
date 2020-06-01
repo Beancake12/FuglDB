@@ -11,15 +11,15 @@
                     @foreach ($locations as $location)
                         <div class="card">
                             <div class="card-body">
-                                Adress: {{$location->adress}}
+                                Addresse: {{$location->adress}}
                                 <br>
-                                City: {{$location->city}}
+                                By: {{$location->city}}
                                 <br>
-                                Zip: {{$location->zip}}
+                                Post nr.: {{$location->zip}}
                                 <br>
-                                Longitude: {{$location->longitude}}
+                                Længdegrad: {{$location->longitude}}
                                 <br>
-                                Latitude: {{$location->latitude}}
+                                Breddegrad: {{$location->latitude}}
                             </div>
                         </div>
                     @endforeach

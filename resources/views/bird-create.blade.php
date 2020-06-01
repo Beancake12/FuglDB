@@ -10,22 +10,22 @@
                 <div class="card-body">
                     <form action="/bird/create" method="POST">
                         @csrf
-                    	<h1>Bird</h1>
-                        <label>Name</label>
+                    	<h1>Opret fugl</h1>
+                        <label>Navn</label>
                         <input type="text" name="name">
                         {{$errors->first('name')}}
                         <br>
 
-                        <label>Ring</label>
+                        <label>Ring nr.</label>
                         <input type="text" name="ring">
                         <br>
 
-                        <label>Dead</label>
+                        <label>Død</label>
                         <input type="checkbox" name="dead" value="0">
 						<div class="form-group">
-							<label for="location">Example select</label>
+							<label for="location">Vælg område</label>
 							<select class="form-control" id="location" name="location_id">
-								<option value="">No location</option>
+								<option value="">Intet område</option>
 								@foreach ($locations as $location)
 									<option value="{{$location->id}}">
 										{{$location->city}}
