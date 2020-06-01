@@ -29,7 +29,7 @@ Route::post('bird/create', 'BirdController@store')->name('bird.store');
 Route::get('bird/delete/{id}', 'BirdController@delete')->name('bird.delete');
 
 // Location views
-Route::get('location', 'LocationController@index')->name('location.index');
+Route::get('location', 'LocationController@create')->name('location.create');
 Route::get('location/table', 'LocationController@table')->name('location.table');
 
 // Location functions

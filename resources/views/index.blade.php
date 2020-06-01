@@ -14,7 +14,7 @@
                     <a href="{{route('bird.table')}}">Alle fugle</a>
                 </div>
                 <div class="card-body">
-                    <a href="{{route('location.index')}}">Opret område</a>
+                    <a href="{{route('location.create')}}">Opret område</a>
                 </div>
                 <div class="card-body">
                     <a href="{{route('location.table')}}">Alle områder</a>
