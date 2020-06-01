@@ -24,7 +24,7 @@ Route::get('bird/table', 'BirdController@table')->name('bird.table');
 
 // Bird functions
 Route::get('birds', 'BirdController@all')->name('bird.all');
-Route::get('bird/get/{id}', 'BirdController@get')->name('bird.get');
+Route::get('bird/get/{id}', 'BirdController@showBird')->name('bird.show');
 Route::post('bird/create', 'BirdController@store')->name('bird.store');
 Route::get('bird/delete/{id}', 'BirdController@delete')->name('bird.delete');
 

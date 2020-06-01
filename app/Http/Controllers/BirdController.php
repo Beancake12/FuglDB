@@ -27,36 +27,42 @@ class BirdController extends Controller
 		return view('bird-create', compact('locations'));
 	}
 
-	public function table()
+	public function table() : View
 	{
-		$birds = $this->all();
+		$birds = $this->birdService->allWithLocations();
+		
 		return view('bird-table', compact('birds'));
 	}
 
-	public function store(StoreBird $request) : Bird
+	public function store(StoreBird $request) : View
 	{
 		$validatedData = $request->validated();
+		
+		// Cast dead to bool
+		if(isset($validatedData['dead'])) {
+			$validatedData['dead'] = (Boolean) $validatedData['dead'];
+		}
+
+		// Store bird
 		$bird = $this->birdService->store($validatedData);
 		
+		// Attach location
 		if($validatedData['location_id'] && $bird) {
 			$bird->locations()->attach($validatedData['location_id']);
 		}
 
-		return $bird;
+		return $this->showBird($bird->id);
+	}
+
+	public function showBird(int $id) : View
+	{
+		$bird = $this->birdService->getWithLocations($id);
+
+		return view('bird-show', compact('bird'));
 	}
 
 	public function delete(int $id) : bool
 	{
 		return $this->birdService->delete($id);
-	}
-
-	public function get(int $id) : ?Bird
-	{
-		return $this->birdService->get($id);
-	}
-
-	public function all() : Collection
-	{
-		return $this->birdService->all();
 	}
 }

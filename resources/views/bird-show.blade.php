@@ -8,14 +8,14 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @foreach ($birds as $bird)
-                        <div class="card">
-                            <div class="card-body">
-                                Navn: {{$bird->name}}
+                    <div class="card">
+                        <div class="card-body">
+                            @if ($bird)
+                                {{$bird->name}}
                                 <br>
-                                Ring nr.: {{$bird->ring}}
+                                {{$bird->ring}}
                                 <br>
-                                Områder:
+                                {{$bird->dead}}
                                 <br>
                                 @foreach ($bird->locations as $location)
                                     {{$location->adress}}
@@ -28,9 +28,11 @@
                                     <br>
                                     {{$location->longitude}}
                                 @endforeach
-                            </div>
+                            @else
+                                No bird was found with that ID
+                            @endif
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>

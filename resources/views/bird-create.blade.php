@@ -18,10 +18,12 @@
 
                         <label>Ring nr.</label>
                         <input type="text" name="ring" value="{{old('ring')}}">
+                        {{$errors->first('ring')}}
                         <br>
 
                         <label>Død</label>
                         <input type="checkbox" name="dead" {{old('dead') ? 'checked' : ''}}>
+                        {{$errors->first('dead')}}
                         <br>
 
 						<div class="form-group">
