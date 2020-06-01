@@ -9,26 +9,26 @@
 
                 <div class="card-body">
                     <form action="/location/create" method="POST">
-                        @csrf
+                        @csrf                        
                         <h1>Område</h1>
                         <label>Addresse</label>
-                        <input type="text" name="adress">
+                        <input type="text" name="adress" value="{{old('adress')}}">
                         {{$errors->first('adress')}}
                         <br>
                         <label>By</label>
-                        <input type="text" name="city">
+                        <input type="text" name="city" value="{{old('city')}}">
                         {{$errors->first('city')}}
                         <br>
                         <label>Post nr.</label>
-                        <input type="text" name="zip">
+                        <input type="text" name="zip" value="{{old('zip')}}">
                         {{$errors->first('zip')}}
                         <br>
                         <label>Længdegrad</label>
-                        <input type="text" name="longitude">
+                        <input type="text" name="longitude" value="{{old('longitude')}}">
                         {{$errors->first('longitude')}}
                         <br>
                         <label>Breddegrad</label>
-                        <input type="text" name="latitude">
+                        <input type="text" name="latitude" value="{{old('latitude')}}">
                         {{$errors->first('latitude')}}
                         <br>
                         <input type="submit" value="Gem">

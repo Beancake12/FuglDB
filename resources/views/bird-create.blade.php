@@ -12,22 +12,24 @@
                         @csrf
                     	<h1>Opret fugl</h1>
                         <label>Navn</label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" value="{{old('name')}}">
                         {{$errors->first('name')}}
                         <br>
 
                         <label>Ring nr.</label>
-                        <input type="text" name="ring">
+                        <input type="text" name="ring" value="{{old('ring')}}">
                         <br>
 
                         <label>Død</label>
-                        <input type="checkbox" name="dead" value="0">
+                        <input type="checkbox" name="dead" {{old('dead') ? 'checked' : ''}}>
+                        <br>
+
 						<div class="form-group">
 							<label for="location">Vælg område</label>
 							<select class="form-control" id="location" name="location_id">
 								<option value="">Intet område</option>
 								@foreach ($locations as $location)
-									<option value="{{$location->id}}">
+									<option value="{{$location->id}}" {{ (old('location_id') == $location->id) ? 'selected' : '' }}>
 										{{$location->city}}
 										{{$location->adress}}
 										{{$location->zip}}
