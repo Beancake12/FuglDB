@@ -16,30 +16,32 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'IndexController@index');
+Route::middleware(['web'])->group(function () {
+    Route::get('/', 'IndexController@index');
 
-// Bird views
-Route::get('bird', 'BirdController@create')->name('bird.create');
-Route::get('bird/table', 'BirdController@table')->name('bird.table');
+    // Bird views
+    Route::get('bird', 'BirdController@create')->name('bird.create');
+    Route::get('bird/list', 'BirdController@list')->name('bird.list');
 
-// Bird functions
-Route::get('birds', 'BirdController@all')->name('bird.all');
-Route::get('bird/get/{id}', 'BirdController@showBird')->name('bird.show');
-Route::post('bird/create', 'BirdController@store')->name('bird.store');
-Route::get('bird/delete/{id}', 'BirdController@delete')->name('bird.delete');
+    // Bird functions
+    Route::get('birds', 'BirdController@all')->name('bird.all');
+    Route::get('bird/get/{id}', 'BirdController@showBird')->name('bird.show');
+    Route::post('bird/create', 'BirdController@store')->name('bird.store');
+    Route::get('bird/delete/{id}', 'BirdController@delete')->name('bird.delete');
 
-// Location views
-Route::get('location', 'LocationController@create')->name('location.create');
-Route::get('location/table', 'LocationController@table')->name('location.table');
+    // Location views
+    Route::get('location', 'LocationController@create')->name('location.create');
+    Route::get('location/list', 'LocationController@list')->name('location.list');
 
-// Location functions
-Route::get('locations', 'LocationController@all')->name('location.all');
-Route::get('location/get/{id}', 'LocationController@get')->name('location.get');
-Route::post('location/create', 'LocationController@store')->name('location.store');
-Route::post('location/delete', 'LocationController@delete')->name('location.delete');
+    // Location functions
+    Route::get('locations', 'LocationController@all')->name('location.all');
+    Route::get('location/get/{id}', 'LocationController@get')->name('location.get');
+    Route::post('location/create', 'LocationController@store')->name('location.store');
+    Route::post('location/delete', 'LocationController@delete')->name('location.delete');
 
-// Contacts
-Route::get('contacts', 'ContactController@all');
-Route::get('contact/get/{id}', 'ContactController@get');
-Route::post('contact/create', 'ContactController@store');
-Route::post('contact/delete', 'ContactController@delete');
+    // Contacts
+    Route::get('contacts', 'ContactController@all');
+    Route::get('contact/get/{id}', 'ContactController@get');
+    Route::post('contact/create', 'ContactController@store');
+    Route::post('contact/delete', 'ContactController@delete');
+});
