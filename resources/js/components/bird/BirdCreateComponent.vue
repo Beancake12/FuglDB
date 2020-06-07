@@ -71,7 +71,7 @@ export default {
             console.log(this.formData);
             axios.post('/bird/create', this.formData)
             .then(response => {
-                console.log(response);
+                window.location.href = `/bird/get/${response.data.id}`;
             })
             .catch(error => {
                 if (error.response.status == 422) {
