@@ -23,7 +23,7 @@
                             <br>
 
                             <label>Død</label>
-                            <input type="checkbox" name="dead">
+                            <input type="checkbox" name="dead" v-model="formData.dead">
                             <br>
 
                             <div class="form-group">
@@ -60,6 +60,7 @@ export default {
             formData: {
                 name: '',
                 ring: '',
+                dead: false,
                 location_id: '',
             }
         }
