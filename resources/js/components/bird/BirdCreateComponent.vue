@@ -1,0 +1,90 @@
+<template>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Dashboard</div>
+
+                    <div class="card-body">
+                        <form @submit.prevent="submit">
+                            <h1>Opret fugl</h1>
+                            <label>Navn</label>
+                            <input type="text" name="name" v-model="formData.name">
+                            <div v-if="errors.name">
+                                {{errors.name[0]}}
+                            </div>
+                            <br>
+
+                            <label>Ring nr.</label>
+                            <input type="text" name="ring" v-model="formData.ring">
+                            <div v-if="errors.ring">
+                                {{errors.ring[0]}}
+                            </div>
+                            <br>
+
+                            <label>Død</label>
+                            <input type="checkbox" name="dead">
+                            <br>
+
+                            <div class="form-group">
+                                <label for="location_id">Vælg område</label>
+                                <select class="form-control" name="location_id" v-model="formData.location_id">
+                                    <option value="">Intet område</option>
+                                    <option v-for="location in locations"
+                                        :key="location.id"
+                                        :value="location.id">
+                                        {{location.city}}, {{location.adress}}
+                                    </option>
+                                </select>
+                            </div>
+                            <br>
+                            
+                            <input type="submit" value="Gem">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        locations: Array
+    },
+
+    data: function() {
+        return {
+            errors: {},
+            formData: {
+                name: '',
+                ring: '',
+                location_id: '',
+            }
+        }
+    },
+
+    methods: {
+        submit() {
+            console.log(this.formData);
+            axios.post('/bird/create', this.formData)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                if (error.response.status == 422) {
+                    console.log(error.response.data.errors)
+                    this.errors = error.response.data.errors;
+                } else {
+                    console.log(error);
+                }
+            })
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>

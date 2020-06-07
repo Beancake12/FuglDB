@@ -11,13 +11,13 @@
                     <a href="{{route('bird.create')}}">Opret fugl</a>
                 </div>
                 <div class="card-body">
-                    <a href="{{route('bird.table')}}">Alle fugle</a>
+                    <a href="{{route('bird.list')}}">Alle fugle</a>
                 </div>
                 <div class="card-body">
                     <a href="{{route('location.create')}}">Opret område</a>
                 </div>
                 <div class="card-body">
-                    <a href="{{route('location.table')}}">Alle områder</a>
+                    <a href="{{route('location.list')}}">Alle områder</a>
                 </div>
             </div>
         </div>
