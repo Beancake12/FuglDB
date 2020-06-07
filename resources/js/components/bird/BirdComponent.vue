@@ -6,6 +6,8 @@
         <br>
         Områder:
         <br>
+        Død: {{bird.dead ? 'Ja' : 'Nej'}}
+        <br>
         <div v-for="location in bird.locations" :key="location.id">
             <location-component :location="location"></location-component>
         </div>
