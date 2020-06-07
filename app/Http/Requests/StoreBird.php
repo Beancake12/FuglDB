@@ -25,7 +25,7 @@ class StoreBird extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'ring' => ['nullable', 'string'],
+            'ring' => ['nullable', 'string', 'unique:birds,ring'],
             'dead' => ['nullable'],
             'location_id' => ['nullable', 'exists:locations,id']
         ];
