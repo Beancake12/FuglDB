@@ -37899,6 +37899,8 @@ var render = function() {
           _c("div", { staticClass: "card-header" }, [_vm._v("Dashboard")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
+            _c("h1", [_vm._v("Opret fugl")]),
+            _vm._v(" "),
             _c(
               "form",
               {
@@ -37910,8 +37912,6 @@ var render = function() {
                 }
               },
               [
-                _c("h1", [_vm._v("Opret fugl")]),
-                _vm._v(" "),
                 _c("label", [_vm._v("Navn")]),
                 _vm._v(" "),
                 _c("input", {
@@ -37923,7 +37923,7 @@ var render = function() {
                       expression: "formData.name"
                     }
                   ],
-                  attrs: { type: "text", name: "name" },
+                  attrs: { type: "text" },
                   domProps: { value: _vm.formData.name },
                   on: {
                     input: function($event) {
@@ -37958,7 +37958,7 @@ var render = function() {
                       expression: "formData.ring"
                     }
                   ],
-                  attrs: { type: "text", name: "ring" },
+                  attrs: { type: "text" },
                   domProps: { value: _vm.formData.ring },
                   on: {
                     input: function($event) {
@@ -37993,7 +37993,7 @@ var render = function() {
                       expression: "formData.dead"
                     }
                   ],
-                  attrs: { type: "checkbox", name: "dead" },
+                  attrs: { type: "checkbox" },
                   domProps: {
                     checked: Array.isArray(_vm.formData.dead)
                       ? _vm._i(_vm.formData.dead, null) > -1
@@ -38028,9 +38028,7 @@ var render = function() {
                 _c("br"),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "location_id" } }, [
-                    _vm._v("Vælg område")
-                  ]),
+                  _c("label", [_vm._v("Vælg område")]),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -38044,7 +38042,6 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { name: "location_id" },
                       on: {
                         change: function($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -38237,7 +38234,7 @@ var render = function() {
                       expression: "formData.adress"
                     }
                   ],
-                  attrs: { type: "text", name: "adress" },
+                  attrs: { type: "text" },
                   domProps: { value: _vm.formData.adress },
                   on: {
                     input: function($event) {
@@ -38272,7 +38269,7 @@ var render = function() {
                       expression: "formData.city"
                     }
                   ],
-                  attrs: { type: "text", name: "city" },
+                  attrs: { type: "text" },
                   domProps: { value: _vm.formData.city },
                   on: {
                     input: function($event) {
@@ -38307,7 +38304,7 @@ var render = function() {
                       expression: "formData.zip"
                     }
                   ],
-                  attrs: { type: "text", name: "zip" },
+                  attrs: { type: "text" },
                   domProps: { value: _vm.formData.zip },
                   on: {
                     input: function($event) {
@@ -38342,7 +38339,7 @@ var render = function() {
                       expression: "formData.longitude"
                     }
                   ],
-                  attrs: { type: "text", name: "longitude" },
+                  attrs: { type: "text" },
                   domProps: { value: _vm.formData.longitude },
                   on: {
                     input: function($event) {
@@ -38377,7 +38374,7 @@ var render = function() {
                       expression: "formData.latitude"
                     }
                   ],
-                  attrs: { type: "text", name: "latitude" },
+                  attrs: { type: "text" },
                   domProps: { value: _vm.formData.latitude },
                   on: {
                     input: function($event) {

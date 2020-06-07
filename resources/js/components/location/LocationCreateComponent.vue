@@ -8,35 +8,35 @@
                         <form @submit.prevent="submit">
                             <h1>Område</h1>
                             <label>Addresse</label>
-                            <input type="text" name="adress" v-model="formData.adress">
+                            <input type="text" v-model="formData.adress">
                             <div v-if="errors.name">
                                 {{errors.adress[0]}}
                             </div>
                             <br>
 
                             <label>By</label>
-                            <input type="text" name="city" v-model="formData.city">
+                            <input type="text" v-model="formData.city">
                             <div v-if="errors.name">
                                 {{errors.city[0]}}
                             </div>
                             <br>
 
                             <label>Post nr.</label>
-                            <input type="text" name="zip" v-model="formData.zip">
+                            <input type="text" v-model="formData.zip">
                             <div v-if="errors.name">
                                 {{errors.zip[0]}}
                             </div>
                             <br>
 
                             <label>Længdegrad</label>
-                            <input type="text" name="longitude" v-model="formData.longitude">
+                            <input type="text" v-model="formData.longitude">
                             <div v-if="errors.name">
                                 {{errors.longitude[0]}}
                             </div>
                             <br>
 
                             <label>Breddegrad</label>
-                            <input type="text" name="latitude" v-model="formData.latitude">
+                            <input type="text" v-model="formData.latitude">
                             <div v-if="errors.name">
                                 {{errors.latitude[0]}}
                             </div>
