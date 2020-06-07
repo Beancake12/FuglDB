@@ -22,10 +22,10 @@ class LocationController extends Controller
 		return view('location-create');
 	}
 
-	public function table()
+	public function list()
 	{
 		$locations = $this->all();
-		return view('location-table', compact('locations'));
+		return view('location-list', compact('locations'));
 	}
 
 	public function store(StoreLocation $request) : Location

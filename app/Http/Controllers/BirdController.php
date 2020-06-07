@@ -27,17 +27,17 @@ class BirdController extends Controller
 		return view('bird-create', compact('locations'));
 	}
 
-	public function table() : View
+	public function list() : View
 	{
 		$birds = $this->birdService->allWithLocations();
 		
-		return view('bird-table', compact('birds'));
+		return view('bird-list', compact('birds'));
 	}
 
-	public function store(StoreBird $request) : View
+	public function store(StoreBird $request) : Bird
 	{
 		$validatedData = $request->validated();
-		
+
 		// Cast dead to bool
 		if(isset($validatedData['dead'])) {
 			$validatedData['dead'] = (Boolean) $validatedData['dead'];
@@ -51,7 +51,7 @@ class BirdController extends Controller
 			$bird->locations()->attach($validatedData['location_id']);
 		}
 
-		return $this->showBird($bird->id);
+		return $bird;
 	}
 
 	public function showBird(int $id) : View
