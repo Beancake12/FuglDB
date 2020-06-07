@@ -1955,6 +1955,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     bird: Object
@@ -2043,7 +2045,7 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log(this.formData);
       axios.post('/bird/create', this.formData).then(function (response) {
-        console.log(response);
+        window.location.href = "/bird/get/".concat(response.data.id);
       })["catch"](function (error) {
         if (error.response.status == 422) {
           console.log(error.response.data.errors);
@@ -2207,6 +2209,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/location/create', this.formData).then(function (response) {
+        window.location.href = "/location/get/".concat(response.data.id);
         console.log(response);
       })["catch"](function (error) {
         if (error.response.status == 422) {
@@ -37857,6 +37860,8 @@ var render = function() {
       _c("br"),
       _vm._v("\n    Områder:\n    "),
       _c("br"),
+      _vm._v("\n    Død: " + _vm._s(_vm.bird.dead ? "Ja" : "Nej") + "\n    "),
+      _c("br"),
       _vm._v(" "),
       _vm._l(_vm.bird.locations, function(location) {
         return _c(
@@ -38246,7 +38251,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.name
+                _vm.errors.adress
                   ? _c("div", [
                       _vm._v(
                         "\n                            " +
@@ -38281,7 +38286,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.name
+                _vm.errors.city
                   ? _c("div", [
                       _vm._v(
                         "\n                            " +
@@ -38316,7 +38321,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.name
+                _vm.errors.zip
                   ? _c("div", [
                       _vm._v(
                         "\n                            " +
@@ -38351,7 +38356,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.name
+                _vm.errors.longitude
                   ? _c("div", [
                       _vm._v(
                         "\n                            " +
@@ -38386,7 +38391,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.name
+                _vm.errors.latitude
                   ? _c("div", [
                       _vm._v(
                         "\n                            " +

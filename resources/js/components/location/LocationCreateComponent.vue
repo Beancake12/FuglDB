@@ -9,35 +9,35 @@
                             <h1>Område</h1>
                             <label>Addresse</label>
                             <input type="text" v-model="formData.adress">
-                            <div v-if="errors.name">
+                            <div v-if="errors.adress">
                                 {{errors.adress[0]}}
                             </div>
                             <br>
 
                             <label>By</label>
                             <input type="text" v-model="formData.city">
-                            <div v-if="errors.name">
+                            <div v-if="errors.city">
                                 {{errors.city[0]}}
                             </div>
                             <br>
 
                             <label>Post nr.</label>
                             <input type="text" v-model="formData.zip">
-                            <div v-if="errors.name">
+                            <div v-if="errors.zip">
                                 {{errors.zip[0]}}
                             </div>
                             <br>
 
                             <label>Længdegrad</label>
                             <input type="text" v-model="formData.longitude">
-                            <div v-if="errors.name">
+                            <div v-if="errors.longitude">
                                 {{errors.longitude[0]}}
                             </div>
                             <br>
 
                             <label>Breddegrad</label>
                             <input type="text" v-model="formData.latitude">
-                            <div v-if="errors.name">
+                            <div v-if="errors.latitude">
                                 {{errors.latitude[0]}}
                             </div>
                             <br>
@@ -74,6 +74,7 @@ export default {
         submit() {
             axios.post('/location/create', this.formData)
             .then(response => {
+                window.location.href = `/location/get/${response.data.id}`
                 console.log(response)
             })
             .catch(error => {
