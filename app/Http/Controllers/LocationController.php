@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreLocation;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\View\View;
 use App\Services\LocationService;
 use App\Models\Location;
 
@@ -24,7 +25,7 @@ class LocationController extends Controller
 
 	public function list()
 	{
-		$locations = $this->all();
+		$locations = $this->locationService->all();
 		return view('location-list', compact('locations'));
 	}
 
@@ -33,13 +34,10 @@ class LocationController extends Controller
 		return $this->locationService->store($request->validated());
 	}
 
-	public function all() : Collection
+	public function showLocations(int $id) : View
 	{
-		return $this->locationService->all();
-	}
+		$location = $this->locationService->get($id);
 
-	public function get(int $id) : ?Location
-	{
-		return $this->locationService->get($id);
+		return view('location-show', compact('location'));
 	}
 }
