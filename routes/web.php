@@ -34,8 +34,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('location/list', 'LocationController@list')->name('location.list');
 
     // Location functions
-    Route::get('locations', 'LocationController@all')->name('location.all');
-    Route::get('location/get/{id}', 'LocationController@get')->name('location.get');
+    Route::get('location/get/{id}', 'LocationController@showLocations')->name('location.show');
     Route::post('location/create', 'LocationController@store')->name('location.store');
     Route::post('location/delete', 'LocationController@delete')->name('location.delete');
 
